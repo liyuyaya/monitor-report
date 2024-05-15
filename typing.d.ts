@@ -8,7 +8,6 @@ export type AsyncFieldNameOptions = {
     errorType: string | null,
 }
 
-
 // asycn errpr options config
 export type AsyncErrorOptions = {
     // fieldNames: AsyncFieldNameOptions
