@@ -1,8 +1,9 @@
 **/*
 !/dist/**
-!README.md
-!package.json
-!README.en-US.md
-!LICENSE
-!index.js
-!typing.d.ts
+!/README.md
+!/package.json
+!/README.en-US.md
+!/LICENSE
+!/index.js
+!/index.d.ts
+!/types/**

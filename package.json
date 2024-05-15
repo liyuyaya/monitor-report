@@ -1,15 +1,16 @@
 {
   "name": "monitor-report",
-  "version": "0.0.0-bate1.0",
+  "version": "0.0.0-bate1.5",
   "main": "index.js",
   "license": "MIT",
   "type": "module",
-  "types": "./typing.d.ts",
-  "typings": "./typing.d.ts",
+  "types": "./index.d.ts",
+  "typings": "./index.d.ts",
   "description": " tool used to assist the front-end in collecting errors, operations, PV/UV statistics, etc",
   "keywords": [
     "monitor-report",
     "monitor",
+    "report",
     "vue",
     "react"
   ],
@@ -24,11 +25,11 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./typing.d.ts",
+        "types": "./index.d.ts",
         "default": "./dist/monitor.report.esm-bundler.js"
       }
     },
-    "./types": "./typing.d.ts",
+    "./types": "./index.d.ts",
     "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },

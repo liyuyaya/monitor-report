@@ -52,11 +52,15 @@
     <script>
         init({
             errorOptions: {
-                url: "http://error.example.com/api"
+                url: "http://error.example.com/api",
+                asyncErrorOptions: {},
+                promiseErrorOptions: {},
+                resourceErrorOptions: {}
             },
-            behaviorOptions: {
-                url: "http://behavior.example.com/api"
-            },
+            behaviorOptions: false,
+            // behaviorOptions: {
+            //     url: "http://behavior.example.com/api"
+            // },
             pvUvOptions: {
                 url: "http://pv.uv.example.com/api"
             },

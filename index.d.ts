@@ -1,5 +1,4 @@
-import { AsyncError } from "./src/utils/typing"
-
+import type { AsyncError, AllError, AutoTrackerAction, PvUv } from "./types/typing"
 // async field name
 export type AsyncFieldNameOptions = {
     message: string | null,
@@ -55,6 +54,8 @@ export type ErrorType = "asyncError" | "promisError" | "resourcError" | "request
  * @param {boolean} log  log(日志)
  */
 export function monitorReport(options: Options): {
-    reporting(type: EventType | ErrorType): void;
+    errorReporting(options: AllError): void;
+    behaviorReporting(behaviorOptions: AutoTrackerAction): void;
+    pvUvReporting(PvUvOptions: PvUv): void;
 };
 export default monitorReport;

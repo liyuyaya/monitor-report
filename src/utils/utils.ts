@@ -1,5 +1,5 @@
-import { Options, PromiseErrorOptions } from "../../typing";
-import { ElementInfo, RequestError } from "./typing";
+import { Options, PromiseErrorOptions } from "../../index";
+import { ElementInfo, RequestError } from "../../types/typing";
 
 /**
  * init options values
@@ -126,7 +126,11 @@ export const isJosn = (values: string) => {
  * message log
  * @param message 
  */
-const log = (message: string) => {
+const log = (message: any) => {
+    console.log(
+        "-----------------"
+    );
+
     console.log(
         '%c鲤鱼日志',
         'font-family:Arial,Helvetica,sans-serif;color: white; font-weight: bold;background-color: #0abf5b;padding:2px 10px;border-radius: 3px;font-size: 12px;',

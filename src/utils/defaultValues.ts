@@ -1,4 +1,4 @@
-import { Options } from "../../typing";
+import { Options } from "../../index";
 
 //  default options values
 

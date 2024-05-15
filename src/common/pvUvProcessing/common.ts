@@ -1,5 +1,7 @@
-import { Options, PvUvOptions } from "../../../typing";
+import { Options, PvUvOptions } from "../../../index";
 import { HistoryEventEnum } from "../../utils/enums";
+import { pvUvReportingTool } from "../../utils/reportingTool";
+import { PvUvtype } from "../../../types/typing";
 
 export function listenerFc(
     options: PvUvOptions,
@@ -14,13 +16,19 @@ export function listenerFc(
         return stayTime;
     }
     return function (
-        type: 'pushState' | 'replaceState' | 'load' | 'unload' | 'popstate',
+        type: PvUvtype,
     ) {
         const stayTime = getTime();
         const currentPath = window.location.href;
         console.log("listener", {
             stayTime, currentPath, prePath, type
         });
+        pvUvReportingTool({
+            stayTime,
+            currentPath,
+            prePath,
+            type,
+        }, globalOptions)
         prePath = currentPath;
     }
 }

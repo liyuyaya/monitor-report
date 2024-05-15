@@ -5,8 +5,10 @@
     "src/typing.d.tsd.ts",
     "src/index.tsx.ts",
     "src/index.tsx.ts",
-    "typing.d.ts",
-    "typing.d.ts"
+    "index.d.ts",
+    "index.d.ts",
+    "types/global.d.ts",
+    "types/typing.d.ts"
   ],
   "exclude": [],
   "compilerOptions": {

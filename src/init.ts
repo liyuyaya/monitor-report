@@ -1,18 +1,25 @@
 
 import { InitConstructor } from "./common/index";
-import { ErrorType, EventType, Options } from "../typing";
-import { reportingTool } from "./utils/reportingTool";
+import { ErrorType, EventType, Options } from "../index";
+import { behaviorReportingTool, errorReportingTool, pvUvReportingTool, reportingTool } from "./utils/reportingTool";
 import { defaultOptionsValue } from "./utils/defaultValues";
 import { initParamsUtils } from "./utils/utils";
+import { AllError, AutoTrackerAction, PvUv } from "../types/typing";
 
 // init config
 function monitorReport(options: Options) {
-    const reusltOptions = initParamsUtils(defaultOptionsValue, options);
+    const resultOptions = initParamsUtils(defaultOptionsValue, options);
     new InitConstructor(options);
     return {
-        reporting(type: (EventType | ErrorType)) {
-            reportingTool({}, reusltOptions)
+        errorReporting(errorOptions: AllError) {
+            errorReportingTool<AllError>(errorOptions, resultOptions)
         },
+        behaviorReporting(behaviorOptions: AutoTrackerAction) {
+            behaviorReportingTool<AutoTrackerAction>(behaviorOptions, resultOptions)
+        },
+        pvUvReporting(PvUvOptions: PvUv) {
+            pvUvReportingTool(PvUvOptions, resultOptions)
+        }
     }
 }
 

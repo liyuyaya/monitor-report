@@ -1,7 +1,6 @@
-import { BehaviorOptions, Options } from "../../../typing";
-import { EventEnum } from "../../utils/enums";
-import { reportingTool } from "../../utils/index";
-import { AutoTrackerAction, ElementInfo } from "../../utils/typing";
+import { BehaviorOptions, Options } from "../../../index";
+import { behaviorReportingTool } from "../../utils/reportingTool";
+import { AutoTrackerAction, ElementInfo } from "../../../types/typing";
 import { dtUtils, getElementInfo, getPathToElement, isJosn } from "../../utils/utils";
 
 // "this" 隐式具有类型 "any"，因为它没有类型注释。
@@ -26,7 +25,7 @@ export function behaviorTrackerReport(options: BehaviorOptions, globalOptions: O
             } else {
                 elementInfo = getElementInfo(e);
             }
-            reportingTool<AutoTrackerAction>({
+            behaviorReportingTool<AutoTrackerAction>({
                 html: path,
                 name: target.tagName,
                 type: 'onclick',

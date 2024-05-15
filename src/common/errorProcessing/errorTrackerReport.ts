@@ -1,7 +1,7 @@
-import { AsyncErrorOptions, ErrorOptions, Options, PromiseErrorOptions, ResourceErrorOptions, } from "../../../typing";
+import { AsyncErrorOptions, ErrorOptions, Options, PromiseErrorOptions, ResourceErrorOptions, } from "../../../index";
 import { ErrorTypeEnum } from "../../utils/enums";
 import { errorReportingTool } from "../../utils/reportingTool";
-import { AsyncError, InternalError, PromiseError, RequestError, ResourceError } from "../../utils/typing";
+import { AsyncError, InternalError, PromiseError, RequestError, ResourceError } from "../../../types/typing";
 
 // 普通异常的错误
 // async error tracker processing  
@@ -16,13 +16,15 @@ const asyncErrorTrackerReport = (options: AsyncErrorOptions, globalOptions: Opti
                 message: message as string,
                 url: url as string,
                 type: ErrorTypeEnum.ASYNCERROR,
-                rowCol: row + ":" + col,
+                name: `eroor：[${row + ":" + col}]`,
+                rank: "001"
             }, globalOptions)
         } catch (error: any) {
             errorReportingTool<InternalError>({
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
                 type: ErrorTypeEnum.INTERNALERROR,
+                rank: "101"
             }, globalOptions)
         }
     };
@@ -42,20 +44,25 @@ const promiseErrorTrackerReport = (options: PromiseErrorOptions, globalOptions: 
                     errorReportingTool<RequestError>({
                         message: reason.message + ": [ " + errorMessage.slice(startIndex, endIndex) + " ]",
                         url: reason.config.url,
-                        type: ErrorTypeEnum.REQUESTEERROR
+                        type: ErrorTypeEnum.REQUESTEERROR,
+                        name: "",
+                        rank: "003"
                     }, globalOptions)
                 }
             } else {
                 errorReportingTool<PromiseError>({
                     message: reason,
-                    type: ErrorTypeEnum.PROMISEERROR
+                    type: ErrorTypeEnum.PROMISEERROR,
+                    name: "",
+                    rank: "002"
                 }, globalOptions)
             }
         } catch (error: any) {
             errorReportingTool<InternalError>({
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
-                type: ErrorTypeEnum.INTERNALERROR
+                type: ErrorTypeEnum.INTERNALERROR,
+                rank: "101"
             }, globalOptions)
         }
     }, true)
@@ -75,17 +82,18 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
                 return;
             }
             errorReportingTool<ResourceError>({
-                message: 'loadding ' + (target as HTMLImageElement).tagName + ' resource error',
-                html: target.outerHTML,
+                message: 'loadding ' + (target as HTMLImageElement).tagName + ' resource error:' + target.outerHTML,
                 name: (target as HTMLImageElement).tagName,
                 url: (target as HTMLImageElement).src,
-                type: ErrorTypeEnum.RESOURCEERROR
+                type: ErrorTypeEnum.RESOURCEERROR,
+                rank: "002"
             }, globalOptions)
         } catch (error: any) {
             errorReportingTool<InternalError>({
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
-                type: ErrorTypeEnum.INTERNALERROR
+                type: ErrorTypeEnum.INTERNALERROR,
+                rank: "002"
             }, globalOptions)
         }
 
@@ -95,6 +103,8 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
 // error tracker 
 export function errorTrackerReport(errorOptions: ErrorOptions, options: Options) {
     const { asyncErrorOptions, promiseErrorOptions, resourceErrorOptions } = errorOptions;
+    console.log(errorOptions);
+
     if (asyncErrorOptions) {
         asyncErrorTrackerReport(asyncErrorOptions, options);
     }

@@ -1,5 +1,6 @@
-import { ErrorType, Options } from "../../typing";
-import { AsyncError, PromiseError, RequestParmas } from "./typing";
+import { ErrorType, Options } from "../../index";
+import { AllError, AsyncError, AutoTrackerAction, PromiseError, RequestParmas } from "../../types/typing";
+import { utils } from "./utils";
 
 export function reportingTool<T>(parmas: T, globalOptions: Options) {
     const requestParmas: RequestParmas & T = Object.assign({
@@ -10,16 +11,32 @@ export function reportingTool<T>(parmas: T, globalOptions: Options) {
         origin: window.location.origin,
     }, parmas)
     console.log("parmas", parmas);
-
+    utils.log(parmas)
     // console.log("requestParmas", requestParmas);
     // console.log("globalOptions", globalOptions);
 }
-type Aaa = {
-    type: ErrorType,
-    url: string,
-    message: string,
-}
 
-export function errorReportingTool<T>(param: T, globalOptions: Options) {
-    reportingTool(param, globalOptions)
+/**
+ * error 
+ * @param param  
+ * @param globalOptions 
+ */
+export function errorReportingTool<T extends AllError>(params: T, globalOptions: Options) {
+    reportingTool(params, globalOptions)
+}
+/**
+ * behavior 
+ * @param params 
+ * @param globalOptions 
+ */
+export function behaviorReportingTool<T extends AutoTrackerAction>(params: T, globalOptions: Options) {
+    reportingTool(params, globalOptions)
+}
+/**
+ * pv uv
+ * @param params 
+ * @param globalOptions 
+ */
+export function pvUvReportingTool<T>(params: T, globalOptions: Options) {
+    reportingTool(params, globalOptions)
 }

@@ -1,4 +1,4 @@
-import { Options, PvUvOptions } from "../../../typing";
+import { Options, PvUvOptions } from "../../../index";
 import { hashTackerReport } from "./hashTackerReport";
 import { historyTrackerReport } from "./historyTrackerReport";
 

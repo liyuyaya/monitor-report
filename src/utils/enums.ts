@@ -12,6 +12,10 @@ export enum ErrorTypeEnum {
     INTERNALERROR = 'internalError',
 }
 
+export enum ErrorName {
+    
+}
+
 // event enum 
 export enum HistoryEventEnum {
     PUSHSTATE = 'pushState',
