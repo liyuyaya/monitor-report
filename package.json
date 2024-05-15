@@ -1,6 +1,6 @@
 {
   "name": "monitor-report",
-  "version": "0.0.0-bate0.5",
+  "version": "0.0.0-bate0.7",
   "main": "./src/index.ts",
   "license": "MIT",
   "type": "module",
