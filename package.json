@@ -16,6 +16,11 @@
   "author": {
     "name": "Liyu"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liyuyaya/monitor-report"
+  },
+  "homepage": "https://github.com/liyuyaya/monitor-report",
   "exports": {
     ".": {
       "import": {
