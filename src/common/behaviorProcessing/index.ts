@@ -1,0 +1,1 @@
+export { behaviorTrackerReport } from './behaviorTrackerReport';

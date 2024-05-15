@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../dist/monitor.report.iife-bundler.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.6.8/axios.js"></script>
+    <style>
+        .aaaa {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="root">
+        <a href="./aaa.html">前往aaaaaaaaaaaaaaaa</a>
+        <button onclick="goTo('a')" data-info="{aaa:1}">前往aaa</button>
+        <button onclick="goTo('b')">前往bbb</button>
+        <script>
+            function goTo(type) {
+                if (type == 'a') {
+                    history.pushState({}, "", "./aaa.html")
+                } else if (type == 'b') {
+                    history.pushState({}, "", "./index.html")
+                }
+            }
+        </script>
+        <button onclick="click111()" style="font-size: 12px;">
+            console.log("12312", dddd);
+        </button>
+        <button onclick="click222()">
+            Promise.reject("11111")
+        </button>
+        <button onclick="click444()">
+            console.log(axios);
+        </button>
+        <button onclick="click555()">
+            console.log(fetch);
+        </button>
+        <img src="./aaeddfdsfsd" alt=""> <br />
+        <img id="aaaa"
+            src="https://img2.baidu.com/it/u=625353714,3234245081&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1715619600&t=f6fae9bbe627eb202bf392d4e552eb7e" />
+
+        s
+    </div>
+
+    <script>
+        init({
+            errorOptions:{
+                url:"http://error.example.com/api"
+            },
+            behaviorOptions:{
+                url:"http://behavior.example.com/api"
+            },
+            pvUvOptions:{
+                url:"http://pv.uv.example.com/api"
+            }
+        })
+        const origin = window.history.pushState;
+        // window.history.pushState = function () {
+        //     origin.apply(this, arguments);
+        //     const event = new Event('pushState');
+        //     window.dispatchEvent(event);
+        // }
+        const click111 = () => {
+            console.log("12312", dddd);
+        }
+        const click222 = () => {
+            Promise.reject("11111")
+        }
+        const click333 = (e) => {
+            // Promise.reject("11111")
+            // new Image("./aaa")
+            // console.log("e.target",);
+            e.target.src = "./aaaa"
+        }
+        const URL = "http://127.0.0.1:5500/__test__/eroor/index.html11"
+        const click444 = (e) => {
+            console.log(axios);
+            axios.get(URL).then(res => {
+                // console.log("resc", resc);
+            })
+        }
+        const click555 = (e) => {
+            fetch(URL).then(res => {
+                // console.log("fetch", res);
+                // 
+                if (!res.ok) {
+                    throw new Error("res.url + res.statusText");
+                }
+                // console.log("fetch", res);
+                return res;
+            })
+        }
+        // document.getElementById("1111").addEventListener('click', click333)
+
+    </script>
+</body>
+
+</html>
