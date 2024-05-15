@@ -1,4 +1,4 @@
-import { AsyncError } from "./src/uitls/typing"
+import { AsyncError } from "./src/utils/typing"
 
 // async field name
 export type AsyncFieldNameOptions = {
@@ -40,9 +40,22 @@ export interface Options extends Record<string, any> {
     errorOptions: ErrorOptions | false,
     behaviorOptions: BehaviorOptions | false,
     pvUvOptions: PvUvOptions | false,
-    mode: 'Hash' | 'History'
+    mode: 'Hash' | 'History',
+    log: boolean
 }
-//  init 
-export interface InItClass {
-    loaddingConfig: (options: Options) => void;
-}
+export type EventType = 'onclick'
+export type ErrorType = "asyncError" | "promisError" | "resourcError" | "requestError" | 'internalError'
+
+/**
+ * 
+ * @param options 配置
+ * @param {ErrorOptions | false} errorOptions error options (错误配置)
+ * @param {BehaviorOptions | false} behaviorOptions behavior options (操作配置)   
+ * @param {PvUvOptions | false} pvUvOptions pv uv options (pv，uv统计)
+ * @param {'Hash' | 'History'} mode   mode(模式)
+ * @param {boolean} log  log(日志)
+ */
+export function monitorReport(options: Options): {
+    reporting(type: EventType | ErrorType): void;
+};
+export default monitorReport;

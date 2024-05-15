@@ -1,16 +1,19 @@
-import { ErrorType, EventEnum } from './enums'
-
+import type { EventType } from '../../typing';
 export type AutoTrackerAction = {
     name: string,
-    type: EventEnum,
+    type: EventType,
     html: string,
 }
 
+export interface ErrorProps {
+    message: string,
+
+}
 // internal error
 export type InternalError = {
     message: string,
     name: string,
-    errorType: ErrorType.INNEREXCEPTION | null
+    type: 'internalError'
 }
 
 // async error
@@ -18,7 +21,7 @@ export type AsyncError = {
     message: string,
     url: string,
     rowCol: string,
-    errorType: ErrorType.ASYNCERROR | null
+    type: "asyncError"
 }
 
 //  resource error
@@ -26,19 +29,19 @@ export type ResourceError = {
     message: string,
     url: string,
     name: string,
-    errorType: ErrorType.RESOURCEERROR | null
+    type: "resourcError"
     html: string
 }
 // promise Error
 export type PromiseError = {
     message: string,
-    errorType: ErrorType.PROMISEERROR | null,
+    type: "promisError",
     url?: string,
 }
 // request Error
 export type RequestError = {
     message: string,
-    errorType: ErrorType.REQUESTEERROR | null,
+    type: "requestError",
     url?: string,
 }
 // reporting data

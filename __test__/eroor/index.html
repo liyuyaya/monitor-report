@@ -51,15 +51,16 @@
 
     <script>
         init({
-            errorOptions:{
-                url:"http://error.example.com/api"
+            errorOptions: {
+                url: "http://error.example.com/api"
             },
-            behaviorOptions:{
-                url:"http://behavior.example.com/api"
+            behaviorOptions: {
+                url: "http://behavior.example.com/api"
             },
-            pvUvOptions:{
-                url:"http://pv.uv.example.com/api"
-            }
+            pvUvOptions: {
+                url: "http://pv.uv.example.com/api"
+            },
+            log: true
         })
         const origin = window.history.pushState;
         // window.history.pushState = function () {

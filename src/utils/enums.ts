@@ -1,15 +1,15 @@
 
-export enum ErrorType {
+export enum ErrorTypeEnum {
     // async error 
-    ASYNCERROR = "ASYNCERROR",
+    ASYNCERROR = "asyncError",
     // promise error 
-    PROMISEERROR = "PROMISEERROR",
+    PROMISEERROR = "promisError",
     // resource error 
-    RESOURCEERROR = "RESOURCEERROR",
+    RESOURCEERROR = "resourcError",
     // request error 
-    REQUESTEERROR = "REQUESTEERROR",
+    REQUESTEERROR = "requestError",
     // internal error 
-    INNEREXCEPTION = 'INNEREXCEPTION',
+    INTERNALERROR = 'internalError',
 }
 
 // event enum 
@@ -27,5 +27,5 @@ export enum HashEventEnum {
 }
 
 export enum EventEnum {
-    ONCLICK = "ONCLICK"
+    ONCLICK = "onclick"
 }

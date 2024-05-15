@@ -11,13 +11,17 @@ export function initParamsUtils(initValues: Options, options: Options) {
     if (options == null || options == undefined) {
         return initValues;
     }
-    for (const key in initValues) {
+    for (const key in options) {
         if (Object.prototype.hasOwnProperty.call(options, key)) {
             if (typeof options[key] == 'object') {
                 initParamsUtils(initValues[key], options[key])
             } else {
                 if (options[key]) {
                     initValues[key] = options[key];
+                } else {
+                    if (typeof options[key] == 'boolean' || typeof options[key] == 'number') {
+                        initValues[key] = options[key];
+                    }
                 }
             }
         }
@@ -117,4 +121,19 @@ export const isJosn = (values: string) => {
         }
     }
 
+}
+/**
+ * message log
+ * @param message 
+ */
+const log = (message: string) => {
+    console.log(
+        '%c鲤鱼日志',
+        'font-family:Arial,Helvetica,sans-serif;color: white; font-weight: bold;background-color: #0abf5b;padding:2px 10px;border-radius: 3px;font-size: 12px;',
+        message,
+    );
+}
+
+export const utils = {
+    log
 }

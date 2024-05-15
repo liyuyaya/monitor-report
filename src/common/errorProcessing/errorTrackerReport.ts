@@ -1,30 +1,28 @@
 import { AsyncErrorOptions, ErrorOptions, Options, PromiseErrorOptions, ResourceErrorOptions, } from "../../../typing";
-import { ErrorType } from "../../uitls/enums";
-import { reportingTool } from "../../uitls/index";
-import { InternalError, PromiseError, RequestError, ResourceError } from "../../uitls/typing";
+import { ErrorTypeEnum } from "../../utils/enums";
+import { errorReportingTool } from "../../utils/reportingTool";
+import { AsyncError, InternalError, PromiseError, RequestError, ResourceError } from "../../utils/typing";
 
 // 普通异常的错误
 // async error tracker processing  
 const asyncErrorTrackerReport = (options: AsyncErrorOptions, globalOptions: Options) => {
     const onError = window.onerror;
     window.onerror = function (message, url, row, col, error) {
-        console.log(window, message, url, row, col, error);
-
         try {
             if (onError) {
                 onError.call(window, message, url, row, col, error)
             };
-            reportingTool({
+            errorReportingTool<AsyncError>({
                 message: message as string,
                 url: url as string,
+                type: ErrorTypeEnum.ASYNCERROR,
                 rowCol: row + ":" + col,
-                errorType: ErrorType.ASYNCERROR
             }, globalOptions)
         } catch (error: any) {
-            reportingTool<InternalError>({
+            errorReportingTool<InternalError>({
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
-                errorType: ErrorType.INNEREXCEPTION
+                type: ErrorTypeEnum.INTERNALERROR,
             }, globalOptions)
         }
     };
@@ -41,23 +39,23 @@ const promiseErrorTrackerReport = (options: PromiseErrorOptions, globalOptions: 
                     const errorMessage = reason.response.data;
                     const startIndex = errorMessage.indexOf('<pre>') + 5;
                     const endIndex = errorMessage.indexOf('</pre>');
-                    reportingTool<RequestError>({
+                    errorReportingTool<RequestError>({
                         message: reason.message + ": [ " + errorMessage.slice(startIndex, endIndex) + " ]",
                         url: reason.config.url,
-                        errorType: ErrorType.REQUESTEERROR
+                        type: ErrorTypeEnum.REQUESTEERROR
                     }, globalOptions)
                 }
             } else {
-                reportingTool<PromiseError>({
+                errorReportingTool<PromiseError>({
                     message: reason,
-                    errorType: ErrorType.PROMISEERROR
+                    type: ErrorTypeEnum.PROMISEERROR
                 }, globalOptions)
             }
         } catch (error: any) {
-            reportingTool<InternalError>({
+            errorReportingTool<InternalError>({
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
-                errorType: ErrorType.INNEREXCEPTION
+                type: ErrorTypeEnum.INTERNALERROR
             }, globalOptions)
         }
     }, true)
@@ -76,18 +74,18 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
             if (!isElementTarget) {
                 return;
             }
-            reportingTool<ResourceError>({
+            errorReportingTool<ResourceError>({
                 message: 'loadding ' + (target as HTMLImageElement).tagName + ' resource error',
                 html: target.outerHTML,
                 name: (target as HTMLImageElement).tagName,
                 url: (target as HTMLImageElement).src,
-                errorType: ErrorType.RESOURCEERROR
+                type: ErrorTypeEnum.RESOURCEERROR
             }, globalOptions)
         } catch (error: any) {
-            reportingTool<InternalError>({
+            errorReportingTool<InternalError>({
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
-                errorType: ErrorType.INNEREXCEPTION
+                type: ErrorTypeEnum.INTERNALERROR
             }, globalOptions)
         }
 
@@ -96,9 +94,7 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
 
 // error tracker 
 export function errorTrackerReport(errorOptions: ErrorOptions, options: Options) {
-
     const { asyncErrorOptions, promiseErrorOptions, resourceErrorOptions } = errorOptions;
-
     if (asyncErrorOptions) {
         asyncErrorTrackerReport(asyncErrorOptions, options);
     }

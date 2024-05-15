@@ -1,8 +1,8 @@
 import { BehaviorOptions, Options } from "../../../typing";
-import { EventEnum } from "../../uitls/enums";
-import { reportingTool } from "../../uitls/index";
-import { AutoTrackerAction, ElementInfo } from "../../uitls/typing";
-import { dtUtils, getElementInfo, getPathToElement, isJosn } from "../../uitls/utils";
+import { EventEnum } from "../../utils/enums";
+import { reportingTool } from "../../utils/index";
+import { AutoTrackerAction, ElementInfo } from "../../utils/typing";
+import { dtUtils, getElementInfo, getPathToElement, isJosn } from "../../utils/utils";
 
 // "this" 隐式具有类型 "any"，因为它没有类型注释。
 export function behaviorTrackerReport(options: BehaviorOptions, globalOptions: Options) {
@@ -29,7 +29,7 @@ export function behaviorTrackerReport(options: BehaviorOptions, globalOptions: O
             reportingTool<AutoTrackerAction>({
                 html: path,
                 name: target.tagName,
-                type: EventEnum.ONCLICK,
+                type: 'onclick',
                 ...elementInfo,
             }, globalOptions)
         }

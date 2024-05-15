@@ -1,5 +1,5 @@
 import { Options, PvUvOptions } from "../../../typing";
-import { HistoryEventEnum } from "../../uitls/enums";
+import { HistoryEventEnum } from "../../utils/enums";
 import { createNewEventListener, listenerFc } from "./common";
 
 

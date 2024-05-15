@@ -1,4 +1,4 @@
-import { Options } from "../../typing";
+import { ErrorType, Options } from "../../typing";
 import { AsyncError, PromiseError, RequestParmas } from "./typing";
 
 export function reportingTool<T>(parmas: T, globalOptions: Options) {
@@ -13,6 +13,13 @@ export function reportingTool<T>(parmas: T, globalOptions: Options) {
 
     // console.log("requestParmas", requestParmas);
     // console.log("globalOptions", globalOptions);
+}
+type Aaa = {
+    type: ErrorType,
+    url: string,
+    message: string,
+}
 
-
+export function errorReportingTool<T>(param: T, globalOptions: Options) {
+    reportingTool(param, globalOptions)
 }

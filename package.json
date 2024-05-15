@@ -1,7 +1,7 @@
 {
   "name": "monitor-report",
-  "version": "0.0.0-bate0.7",
-  "main": "./src/index.ts",
+  "version": "0.0.0-bate1.0",
+  "main": "index.js",
   "license": "MIT",
   "type": "module",
   "types": "./typing.d.ts",
@@ -14,7 +14,7 @@
     "react"
   ],
   "author": {
-    "name": "Liyu"
+    "name": "liyu"
   },
   "repository": {
     "type": "git",

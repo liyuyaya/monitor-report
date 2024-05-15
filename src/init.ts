@@ -1,11 +1,21 @@
 
 import { InitConstructor } from "./common/index";
-import { InItClass, Options } from "../typing";
+import { ErrorType, EventType, Options } from "../typing";
+import { reportingTool } from "./utils/reportingTool";
+import { defaultOptionsValue } from "./utils/defaultValues";
+import { initParamsUtils } from "./utils/utils";
 
 // init config
-function init(options: Options): InItClass {
-    return new InitConstructor(options)
+function monitorReport(options: Options) {
+    const reusltOptions = initParamsUtils(defaultOptionsValue, options);
+    new InitConstructor(options);
+    return {
+        reporting(type: (EventType | ErrorType)) {
+            reportingTool({}, reusltOptions)
+        },
+    }
 }
+
 export {
-    init
+    monitorReport
 } 

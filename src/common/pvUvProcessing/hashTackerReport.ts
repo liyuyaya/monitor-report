@@ -1,5 +1,5 @@
 import { Options, PvUvOptions } from "../../../typing";
-import { HashEventEnum } from "../../uitls/enums";
+import { HashEventEnum } from "../../utils/enums";
 import { createNewEventListener, listenerFc } from "./common";
 function eventListener(options: PvUvOptions, globalOptions: Options) {
     const listener = listenerFc(options, globalOptions);

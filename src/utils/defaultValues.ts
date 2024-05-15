@@ -3,14 +3,15 @@ import { Options } from "../../typing";
 //  default options values
 
 export const defaultOptionsValue: Options = {
-
     mode: 'History',
+    log: true,
     errorOptions: {
         url: window.location.origin + "/api",
         asyncErrorOptions: {},
         resourceErrorOptions: {},
         promiseErrorOptions: {}
     },
+
     behaviorOptions: {
         url: window.location.origin + "/api",
     },
