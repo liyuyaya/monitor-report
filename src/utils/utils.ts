@@ -126,16 +126,20 @@ export const isJosn = (values: string) => {
  * message log
  * @param message 
  */
-const log = (message: any) => {
-    console.log(
-        "-----------------"
-    );
+const log = (message: any, type: 'success' | 'fail' = 'success') => {
+    const log = window['__LIYU_IS_LOG__'];
+    enum Color {
+        success = '#0abf5b',
+        fail = '#D6312D'
+    }
 
-    console.log(
-        '%c鲤鱼日志',
-        'font-family:Arial,Helvetica,sans-serif;color: white; font-weight: bold;background-color: #0abf5b;padding:2px 10px;border-radius: 3px;font-size: 12px;',
-        message,
-    );
+    if (log) {
+        console.log(
+            '%c鲤鱼日志',
+            `font-family:Arial,Helvetica,sans-serif;color: white; font-weight: bold;background-color:${Color[type]};padding:2px 10px;border-radius: 3px;font-size: 12px;`,
+            message,
+        );
+    }
 }
 
 export const utils = {

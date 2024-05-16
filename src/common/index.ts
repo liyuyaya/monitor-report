@@ -9,17 +9,32 @@ import { errorTrackerReport } from "./errorProcessing/errorTrackerReport";
 //  init 
 export class InitConstructor {
     constructor(options: Options) {
-        this.loaddingConfig(options);
-        if (options.log) {
-            utils.log('启动成功')
+        const inspectResult = this.inspect(options);
+        if (inspectResult) {
+            this.loaddingConfig(options);
+            utils.log('successfully started')
+        } else {
+            utils.log('fail to start', "fail")
         }
+
     }
     // loadding  config
     loaddingConfig(options: Options) {
-        console.log("options,options",options);
-        
+        console.log("options,options", options);
+
         if (options.errorOptions) errorTrackerReport(options.errorOptions, options);
         if (options.behaviorOptions) behaviorTrackerReport(options.behaviorOptions, options);
         if (options.pvUvOptions) pvUvTrackerReport(options.pvUvOptions, options);
+    }
+    inspect(options: Options) {
+        try {
+            if (options.mode !== "History" && options.mode !== "Hash") {
+                throw new Error("mode error (History or Hash) ")
+            }
+            return true
+        } catch (error: any) {
+            utils.log(error.message, "fail")
+            return false;
+        }
     }
 }

@@ -18,18 +18,7 @@
 
 <body>
     <div id="root">
-        <a href="./aaa.html">前往aaaaaaaaaaaaaaaa</a>
-        <button onclick="goTo('a')" data-info="{aaa:1}">前往aaa</button>
-        <button onclick="goTo('b')">前往bbb</button>
-        <script>
-            function goTo(type) {
-                if (type == 'a') {
-                    history.pushState({}, "", "./aaa.html")
-                } else if (type == 'b') {
-                    history.pushState({}, "", "./index.html")
-                }
-            }
-        </script>
+
         <button onclick="click111()" style="font-size: 12px;">
             console.log("12312", dddd);
         </button>
@@ -57,14 +46,11 @@
                 promiseErrorOptions: {},
                 resourceErrorOptions: {}
             },
-            behaviorOptions: false,
-            // behaviorOptions: {
-            //     url: "http://behavior.example.com/api"
-            // },
+            behaviorOptions: {},
             pvUvOptions: {
                 url: "http://pv.uv.example.com/api"
             },
-            log: true
+            log: false // 
         })
         const origin = window.history.pushState;
         // window.history.pushState = function () {

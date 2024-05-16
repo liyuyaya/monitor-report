@@ -7,3 +7,4 @@
 !/index.js
 !/index.d.ts
 !/types/**
+!/env.d.ts

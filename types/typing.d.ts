@@ -17,7 +17,6 @@ export type PvUv = {
     type: PvUvtype
 }
 
-
 export interface ErrorProps {
     message: string,
     name: string,

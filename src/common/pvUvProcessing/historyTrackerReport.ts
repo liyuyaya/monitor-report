@@ -39,6 +39,8 @@ function eventListener(options: PvUvOptions, globalOptions: Options) {
  */
 export function historyTrackerReport(options: PvUvOptions, globalOptions: Options) {
     // new event listener
+    console.log("--------");
+
     window.history.pushState = createNewEventListener('pushState')
     window.history.replaceState = createNewEventListener('replaceState')
     // add event listener

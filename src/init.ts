@@ -8,6 +8,7 @@ import { AllError, AutoTrackerAction, PvUv } from "../types/typing";
 
 // init config
 function monitorReport(options: Options) {
+    window['__LIYU_IS_LOG__'] = options.log == false ? false : true;
     const resultOptions = initParamsUtils(defaultOptionsValue, options);
     new InitConstructor(options);
     return {

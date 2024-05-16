@@ -22,9 +22,9 @@ export type ResourceErrorOptions = {
 }
 // error options config
 export type ErrorOptions = {
-    asyncErrorOptions: AsyncErrorOptions | false,
-    promiseErrorOptions: PromiseErrorOptions | false,
-    resourceErrorOptions: ResourceErrorOptions | false,
+    asyncErrorOptions?: AsyncErrorOptions | false,
+    promiseErrorOptions?: PromiseErrorOptions | false,
+    resourceErrorOptions?: ResourceErrorOptions | false,
     url: string
 }
 export type BehaviorOptions = {
@@ -35,11 +35,11 @@ export type PvUvOptions = {
 }
 // options config
 export interface Options extends Record<string, any> {
-    errorOptions: ErrorOptions | false,
-    behaviorOptions: BehaviorOptions | false,
-    pvUvOptions: PvUvOptions | false,
+    errorOptions?: ErrorOptions | false,
+    behaviorOptions?: BehaviorOptions | false,
+    pvUvOptions?: PvUvOptions | false,
     mode: 'Hash' | 'History',
-    log: boolean
+    log?: boolean
 }
 export type EventType = 'onclick'
 export type ErrorType = "asyncError" | "promisError" | "resourcError" | "requestError" | 'internalError'
@@ -54,8 +54,20 @@ export type ErrorType = "asyncError" | "promisError" | "resourcError" | "request
  * @param {boolean} log  log(日志)
  */
 export function monitorReport(options: Options): {
+    /**
+     * 错误上报
+     * @param options 
+     */
     errorReporting(options: AllError): void;
+    /**
+     * 行为上报
+     * @param behaviorOptions 
+     */
     behaviorReporting(behaviorOptions: AutoTrackerAction): void;
+    /**
+     * pv uv 上报
+     * @param PvUvOptions 
+     */
     pvUvReporting(PvUvOptions: PvUv): void;
 };
 export default monitorReport;

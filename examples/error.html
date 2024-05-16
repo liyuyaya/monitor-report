@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+    <script src="../../dist/monitor.report.iife-bundler.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.6.8/axios.js"></script>
+    <style>
+        .aaaa {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="root">
+        <button onclick="asyncError()">asyncError</button>
+        <button onclick="promiseError()">promiseError</button>
+        <button onclick="resourceError()">resourceError</button>
+    </div>
+
+    <script>
+        init({
+            errorOptions: {
+                url: "http://error.example.com/api",
+                asyncErrorOptions: {},
+                promiseErrorOptions: {},
+                resourceErrorOptions: {}
+            },
+            behaviorOptions: false,
+            pvUvOptions: false,
+            log: true // 
+        })
+        const asyncError = () => {
+            console.log('asyncError', ddd);
+        }
+        const promiseError = async () => {
+            const result = await axios.get("http://127.0.0.1:5500/__test__/error/error")
+            console.log('promiseError', result);
+        }
+        const resourceError = async () => {
+            const dom = document.createElement("img");
+            dom.src = "./no-resoure";
+            document.body.append(dom)
+        }
+    </script>
+</body>
+
+</html>

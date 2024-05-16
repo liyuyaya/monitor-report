@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>behavuir</title>
+    <script src="../../dist/monitor.report.iife-bundler.js"></script>
+    <style>
+        html,
+        body {
+            width: 100wh;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <button>你好</button>
+    <script>
+        init({
+            errorOptions: false,
+            behaviorOptions: {
+                url: "http://behavior.example.com/api",
+            },
+            pvUvOptions: false,
+            log: true // 
+        })
+    </script>
+</body>
+
+</html>

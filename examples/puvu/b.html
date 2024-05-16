@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../dist/monitor.report.iife-bundler.js"></script>
+
+</head>
+
+<body>
+    aaaaaaaaaaaaaaaaaaaaaaaaa <br />
+    history:
+    <button onclick="goTo('a')" data-info="{aaa:1}">前往a</button>
+    <button onclick="goTo('b')">前往b</button> <br /><br />
+    hash:
+    <button onclick="goTo('a',true)" data-info="{aaa:1}">前往a</button>
+    <button onclick="goTo('b',true)">前往b</button> <br />
+    <script>
+        init({
+            errorOptions: false,
+            behaviorOptions: false,
+            pvUvOptions: {
+                url: "http://pv.uv.example.com/api"
+            },
+            mode: "Hash",
+            log: true // 
+        })
+        function goTo(type, bool) {
+            if (!bool) {
+                if (type == 'a') {
+                    history.pushState({}, "", "./a.html")
+                } else if (type == 'b') {
+                    history.pushState({}, "", "./b.html")
+                }
+            } else {
+                if (type == 'a') {
+                    window.location.href = './a.html'
+                } else if (type == 'b') {
+                    window.location.href = './b.html'
+                }
+            }
+
+        }
+    </script>,
+</body>
+
+</html>

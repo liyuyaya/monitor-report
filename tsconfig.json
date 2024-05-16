@@ -7,10 +7,12 @@
     "src/index.tsx.ts",
     "index.d.ts",
     "index.d.ts",
-    "types/global.d.ts",
-    "types/typing.d.ts"
+    "env.d.ts",
+    "types/*.d.ts",
   ],
-  "exclude": [],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
     "target": "ES2015",
     "module": "ESNext",
