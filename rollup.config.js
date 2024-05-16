@@ -1,8 +1,6 @@
-import { watch } from "rollup";
 import ts from "rollup-plugin-typescript2";
-import license from 'rollup-plugin-license';
-import server from 'rollup-plugin-serve'
-import livereload from 'rollup-plugin-livereload'
+import commonjs from '@rollup/plugin-commonjs'
+import resolve from '@rollup/plugin-node-resolve'
 export default {
     input: "./src/index.ts",
     output: [
@@ -34,6 +32,8 @@ export default {
     },
     plugins: [
         ts(),
+        resolve(),
+        commonjs()
         // livereload(),
         // server({
         //     open: true,

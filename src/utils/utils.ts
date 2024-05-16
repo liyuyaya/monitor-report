@@ -8,9 +8,6 @@ import { ElementInfo, RequestError } from "../../types/typing";
  * @returns 
  */
 export function initParamsUtils(initValues: Options, options: Options) {
-    if (options == null || options == undefined) {
-        return initValues;
-    }
     for (const key in options) {
         if (Object.prototype.hasOwnProperty.call(options, key)) {
             if (typeof options[key] == 'object') {

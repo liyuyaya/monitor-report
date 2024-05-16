@@ -40,6 +40,7 @@ export interface Options extends Record<string, any> {
     pvUvOptions?: PvUvOptions | false,
     mode: 'Hash' | 'History',
     log?: boolean
+    isReport?: boolean;
 }
 export type EventType = 'onclick'
 export type ErrorType = "asyncError" | "promisError" | "resourcError" | "requestError" | 'internalError'

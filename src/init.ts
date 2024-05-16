@@ -10,7 +10,7 @@ import { AllError, AutoTrackerAction, PvUv } from "../types/typing";
 function monitorReport(options: Options) {
     window['__LIYU_IS_LOG__'] = options.log == false ? false : true;
     const resultOptions = initParamsUtils(defaultOptionsValue, options);
-    new InitConstructor(options);
+    new InitConstructor(resultOptions);
     return {
         errorReporting(errorOptions: AllError) {
             errorReportingTool<AllError>(errorOptions, resultOptions)

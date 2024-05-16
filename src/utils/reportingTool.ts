@@ -10,6 +10,14 @@ export function reportingTool<T>(parmas: T, globalOptions: Options) {
         protocol: window.location.protocol,
         origin: window.location.origin,
     }, parmas)
+    console.log("实际结果：", globalOptions);
+
+    if (globalOptions.isReport) {
+        utils.log("上报中")
+    } else {
+        utils.log("不上报")
+    }
+
     console.log("parmas", parmas);
     utils.log(parmas)
     // console.log("requestParmas", requestParmas);

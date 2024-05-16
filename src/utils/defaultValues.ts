@@ -5,6 +5,7 @@ import { Options } from "../../index";
 export const defaultOptionsValue: Options = {
     mode: 'History',
     log: true,
+    isReport: true,
     errorOptions: {
         url: window.location.origin + "/api",
         asyncErrorOptions: {},
