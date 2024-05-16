@@ -7,23 +7,23 @@ export default {
         {
             file: "./dist/monitor.report.umd-bundler.js",
             format: 'umd',
-            name: 'init',   //配置打包结果
+            name: 'monitorReport',   //配置打包结果
         },
         {
             file: "./dist/monitor.report.esm-bundler.js",
             format: 'esm',
-            name: 'init',   //配置打包结果
+            name: 'monitorReport',   //配置打包结果
         },
         {
             file: "./dist/monitor.report.cjs-bundler.js",
             format: 'cjs',
-            name: 'init',   //配置打包结果
+            name: 'monitorReport',   //配置打包结果
 
         },
         {
             file: "./dist/monitor.report.iife-bundler.js",
             format: 'iife',
-            name: 'init',   //配置打包结果
+            name: 'monitorReport',   //配置打包结果
 
         },
     ],
