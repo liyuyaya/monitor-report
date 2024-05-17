@@ -7,16 +7,16 @@ export const defaultOptionsValue: Options = {
     log: true,
     isReport: true,
     errorOptions: {
-        url: window.location.origin + "/api",
+        url: window.location.origin + "/example",
         asyncErrorOptions: {},
         resourceErrorOptions: {},
         promiseErrorOptions: {}
     },
 
     behaviorOptions: {
-        url: window.location.origin + "/api",
+        url: window.location.origin + "/example",
     },
     pvUvOptions: {
-        url: window.location.origin + "/api",
+        url: window.location.origin + "/example",
     }
 }

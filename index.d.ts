@@ -35,7 +35,7 @@ export type PvUvOptions = {
 }
 // options config
 export interface Options extends Record<string, any> {
-    errorOptions?: ErrorOptions | false,
+    errorOptions: ErrorOptions | false,
     behaviorOptions?: BehaviorOptions | false,
     pvUvOptions?: PvUvOptions | false,
     mode: 'Hash' | 'History',

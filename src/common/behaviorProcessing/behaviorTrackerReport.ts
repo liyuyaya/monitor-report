@@ -28,7 +28,7 @@ export function behaviorTrackerReport(options: BehaviorOptions, globalOptions: O
                 elementInfo = getElementInfo(e);
             }
             behaviorReportingTool<AutoTrackerAction>({
-                html: path,
+                tag: path,
                 name: target.tagName,
                 type: 'onclick',
                 ...elementInfo,

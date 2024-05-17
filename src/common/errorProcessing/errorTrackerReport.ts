@@ -5,7 +5,7 @@ import { AsyncError, InternalError, PromiseError, RequestError, ResourceError } 
 
 // 普通异常的错误
 // async error tracker processing  
-const asyncErrorTrackerReport = (options: AsyncErrorOptions, globalOptions: Options) => {
+const asyncErrorTrackerReport = (options: AsyncErrorOptions, globalOptions: Options,) => {
     const onError = window.onerror;
     window.onerror = function (message, url, row, col, error) {
         try {
@@ -24,7 +24,7 @@ const asyncErrorTrackerReport = (options: AsyncErrorOptions, globalOptions: Opti
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
                 type: ErrorTypeEnum.INTERNALERROR,
-                rank: "101"
+                rank: "101",
             }, globalOptions)
         }
     };
@@ -62,12 +62,10 @@ const promiseErrorTrackerReport = (options: PromiseErrorOptions, globalOptions: 
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
                 type: ErrorTypeEnum.INTERNALERROR,
-                rank: "101"
+                rank: "101",
             }, globalOptions)
         }
     }, true)
-
-
 }
 // resource 错误
 // resource error tracker processing 
@@ -106,7 +104,6 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
 export function errorTrackerReport(errorOptions: ErrorOptions, options: Options) {
     const { asyncErrorOptions, promiseErrorOptions, resourceErrorOptions } = errorOptions;
     console.log(errorOptions);
-
     if (asyncErrorOptions) {
         asyncErrorTrackerReport(asyncErrorOptions, options);
     }

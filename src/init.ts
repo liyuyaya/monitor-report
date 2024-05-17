@@ -1,6 +1,6 @@
 
 import { InitConstructor } from "./common/index";
-import { ErrorType, EventType, Options } from "../index";
+import { ErrorOptions, ErrorType, EventType, Options } from "../index";
 import { behaviorReportingTool, errorReportingTool, pvUvReportingTool, reportingTool } from "./utils/reportingTool";
 import { defaultOptionsValue } from "./utils/defaultValues";
 import { initParamsUtils } from "./utils/utils";
@@ -8,8 +8,17 @@ import { AllError, AutoTrackerAction, PvUv } from "../types/typing";
 
 // init config
 function monitorReport(options: Options) {
-    window['__LIYU_IS_LOG__'] = options.log == false ? false : true;
     const resultOptions = initParamsUtils(defaultOptionsValue, options);
+    window['__LIYU_IS_LOG__'] = resultOptions.log == false ? false : true;
+    if (options.errorOptions) {
+        window['__LIYU_ERROR_URL__'] = options.errorOptions.url;
+    }
+    if (options.behaviorOptions) {
+        window['__LIYU_BEHAVIOR_URL__'] = options.behaviorOptions.url;
+    }
+    if (options.pvUvOptions) {
+        window['__LIYU_PVUR_URL__'] = options.pvUvOptions.url;
+    }
     new InitConstructor(resultOptions);
     return {
         errorReporting(errorOptions: AllError) {

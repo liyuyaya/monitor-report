@@ -6,7 +6,7 @@ export type PvUvtype = 'pushState' | 'replaceState' | 'load' | 'unload' | 'popst
 export type AutoTrackerAction = {
     name: string,
     type: EventType,
-    html: string,
+    tag: string,
     text?: string | null | undefined
 }
 
@@ -31,7 +31,6 @@ export interface ErrorProps {
 // internal error
 export interface InternalError extends ErrorProps {
     type: 'internalError',
-
 }
 // async error
 export interface AsyncError extends ErrorProps {
@@ -56,14 +55,17 @@ export interface RequestError extends ErrorProps {
 }
 export type AllError = InternalError | AsyncError | ResourceError | PromiseError | RequestError
 // reporting data
-export type RequestParmas = {
+export type RequestParams = {
     host: string,
     hostname: string,
     port: string,
     protocol: string,
     origin: string,
+    requestURL: string
 }
-
+export type RequestURL = {
+    requestURL?: string
+}
 export type ElementInfo = {
     text?: null | string
 }
