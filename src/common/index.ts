@@ -20,8 +20,6 @@ export class InitConstructor {
     }
     // loadding  config
     loaddingConfig(options: Options) {
-        console.log("options,options", options);
-
         if (options.errorOptions) errorTrackerReport(options.errorOptions, options);
         if (options.behaviorOptions) behaviorTrackerReport(options.behaviorOptions, options);
         if (options.pvUvOptions) pvUvTrackerReport(options.pvUvOptions, options);
@@ -29,7 +27,22 @@ export class InitConstructor {
     inspect(options: Options) {
         try {
             if (options.mode !== "History" && options.mode !== "Hash") {
-                throw new Error("mode error (History or Hash) ")
+                throw new Error("mode error (History or Hash)[模式错误，请使用History或者Hash模式] ")
+            }
+            if (typeof options.errorOptions == "object") {
+                if (!options.errorOptions.url) {
+                    throw new Error("options.errorOptions.url not define")
+                }
+            }
+            if (typeof options.behaviorOptions == "object") {
+                if (!options.behaviorOptions.url) {
+                    throw new Error("options.behaviorOptions.url not define")
+                }
+            }
+            if (typeof options.pvUvOptions == "object") {
+                if (!options.pvUvOptions.url) {
+                    throw new Error("options.pvUvOptions.url not define")
+                }
             }
             return true
         } catch (error: any) {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>error</title>
-    <script src="../../dist/monitor.report.iife-bundler.js"></script>
+    <script src="../../dist/monitor.report.iife.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.6.8/axios.js"></script>
     <style>
         .aaaa {
@@ -26,12 +26,11 @@
     <script>
         monitorReport({
             errorOptions: {
-                url: "http://127.0.0.1:8888/monitor/error/report",
+                url: "http://127.0.0.1:8888/monitor/error/report"
             },
-            behaviorOptions: false,
-            pvUvOptions: false,
             mode: "History",
-            log: true // 
+            log: true,//
+            isReport: true
         })
         const asyncError = () => {
             console.log('asyncError', ddd);

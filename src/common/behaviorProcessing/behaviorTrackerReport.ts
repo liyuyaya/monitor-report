@@ -5,8 +5,6 @@ import { dtUtils, getElementInfo, getPathToElement, isJosn } from "../../utils/u
 
 // "this" 隐式具有类型 "any"，因为它没有类型注释。
 export function behaviorTrackerReport(options: BehaviorOptions, globalOptions: Options) {
-    console.log("behaviorTrackerReport");
-
     window.document.body.addEventListener('click', dtUtils((e: { target: HTMLScriptElement | HTMLLIElement | HTMLImageElement; }) => {
         const target = e.target as (HTMLScriptElement | HTMLLIElement | HTMLImageElement);
         if (target) {

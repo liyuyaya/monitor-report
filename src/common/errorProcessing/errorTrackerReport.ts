@@ -72,8 +72,6 @@ const promiseErrorTrackerReport = (options: PromiseErrorOptions, globalOptions: 
 const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions: Options) => {
     window.addEventListener('error', function (error) {
         try {
-            console.log("error");
-
             const target = error.target as (HTMLScriptElement | HTMLLIElement | HTMLImageElement);
             const isElementTarget = target instanceof HTMLScriptElement || target instanceof HTMLLIElement || target instanceof HTMLImageElement;
             // 如果不是资源退出
@@ -103,7 +101,6 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
 // error tracker 
 export function errorTrackerReport(errorOptions: ErrorOptions, options: Options) {
     const { asyncErrorOptions, promiseErrorOptions, resourceErrorOptions } = errorOptions;
-    console.log(errorOptions);
     if (asyncErrorOptions) {
         asyncErrorTrackerReport(asyncErrorOptions, options);
     }

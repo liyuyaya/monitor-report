@@ -6,9 +6,11 @@ export const defaultOptionsValue: Options = {
     mode: 'History',
     log: true,
     isReport: false,
-    errorOptions: false,
-    behaviorOptions: false,
-    pvUvOptions: false,
+    errorOptions: {
+        asyncErrorOptions: {},
+        promiseErrorOptions: {},
+        resourceErrorOptions: {}
+    },
     customFields: {}
 
 }

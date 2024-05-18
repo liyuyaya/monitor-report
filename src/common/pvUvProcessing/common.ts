@@ -20,9 +20,6 @@ export function listenerFc(
     ) {
         const stayTime = getTime();
         const currentPath = window.location.href;
-        console.log("listener", {
-            stayTime, currentPath, prePath, type
-        });
         pvUvReportingTool({
             stayTime,
             currentPath,

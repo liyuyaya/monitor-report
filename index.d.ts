@@ -25,7 +25,7 @@ export type ErrorOptions = {
     asyncErrorOptions?: AsyncErrorOptions | false,
     promiseErrorOptions?: PromiseErrorOptions | false,
     resourceErrorOptions?: ResourceErrorOptions | false,
-    url: string
+    url?: string
 }
 export type BehaviorOptions = {
     url: string
@@ -68,6 +68,16 @@ export interface Options extends Record<string, any> {
 export type EventType = 'onclick'
 export type ErrorType = "asyncError" | "promisError" | "resourcError" | "requestError" | 'internalError'
 
+
+type InitErrorOptions = {
+    asyncErrorOptions?: AsyncErrorOptions | false,
+    promiseErrorOptions?: PromiseErrorOptions | false,
+    resourceErrorOptions?: ResourceErrorOptions | false,
+    url?: string
+}
+interface InitOptions extends Options {
+    errorOptions: InitErrorOptions | false
+}
 /**
  * 
  * @param options 配置
@@ -77,7 +87,7 @@ export type ErrorType = "asyncError" | "promisError" | "resourcError" | "request
  * @param {'Hash' | 'History'} mode   mode(模式)
  * @param {boolean} log  log(日志)
  */
-export function monitorReport(options: Options): {
+export function monitorReport(options: InitOptions): {
     /**
      * 错误上报
      * @param options 

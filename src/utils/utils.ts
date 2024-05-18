@@ -2,7 +2,7 @@ import { Options, PromiseErrorOptions } from "../../index";
 import { ElementInfo, RequestError } from "../../types/typing";
 
 /**
- * init options values
+ * init options values （初始化值）
  * @param initValues 
  * @param options 
  * @returns 

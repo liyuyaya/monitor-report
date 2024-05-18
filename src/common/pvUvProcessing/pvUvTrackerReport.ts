@@ -7,8 +7,6 @@ import { historyTrackerReport } from "./historyTrackerReport";
 
 
 export function pvUvTrackerReport(options: PvUvOptions, globalOptions: Options) {
-    console.log("ddd", globalOptions);
-
     if (globalOptions.mode == 'History') {
         historyTrackerReport(options, globalOptions)
     }
