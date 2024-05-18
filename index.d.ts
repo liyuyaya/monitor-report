@@ -35,12 +35,35 @@ export type PvUvOptions = {
 }
 // options config
 export interface Options extends Record<string, any> {
+    /**
+     *  error optipns  (错误配置)
+     */
     errorOptions: ErrorOptions | false,
+    /**
+     *  behavior options (操作配置)
+     */
     behaviorOptions?: BehaviorOptions | false,
+    /**
+     *  PV UV options (PV UV 配置)
+     */
     pvUvOptions?: PvUvOptions | false,
+    /**
+     *  router0 mode (路由模式)
+     */
     mode: 'Hash' | 'History',
+    /**
+     *  is log  (是否打印日志)
+     */
     log?: boolean
-    isReport?: boolean;
+    /**
+     *  is report data （是否上报数据）
+     */
+    isReport: boolean;
+    /**
+     *  coustom fields (自定义上传字段)
+     */
+    customFields?: object;
+
 }
 export type EventType = 'onclick'
 export type ErrorType = "asyncError" | "promisError" | "resourcError" | "requestError" | 'internalError'

@@ -11,23 +11,18 @@ export function reportingTool<T>(params: T, globalOptions: Options) {
         protocol: window.location.protocol,
         origin: window.location.origin,
     }, params)
-    console.log("实际结果：", globalOptions);
 
     if (globalOptions.isReport) {
         utils.log("上报中")
-        console.log("requestparams.requestURL", requestParams.requestURL);
-        navigator.sendBeacon(requestParams.requestURL as string, JSON.stringify(requestParams))
-
+        navigator.sendBeacon(requestParams.requestURL as string, JSON.stringify(Object.assign(requestParams, globalOptions.customFields)))
     } else {
         utils.log("不上报")
     }
-
-    console.log("parmas", requestParams);
     utils.log(requestParams)
 }
 
 /**
- * error 
+ * error (错误上报)
  * @param param  
  * @param globalOptions 
  */
@@ -38,7 +33,7 @@ export function errorReportingTool<T>(params: T, globalOptions: Options) {
     }, globalOptions)
 }
 /**
- * behavior 
+ * behavior （操作上报）
  * @param params 
  * @param globalOptions 
  */
@@ -50,7 +45,7 @@ export function behaviorReportingTool<T>(params: T, globalOptions: Options) {
     }, globalOptions)
 }
 /**
- * pv uv
+ * pv uv （pu uv 上报）
  * @param params 
  * @param globalOptions 
  */

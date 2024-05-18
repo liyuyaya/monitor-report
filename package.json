@@ -6,7 +6,7 @@
   "type": "module",
   "types": "./index.d.ts",
   "typings": "./index.d.ts",
-  "description": " tool used to assist the front-end in collecting errors, operations, PV/UV statistics, etc",
+  "description": " tool used to assist the front-end in collecting errors, operations, PV/UV statistics, etc （一个用来帮助前端收集错误、操作、pv / uv 统计等）",
   "keywords": [
     "monitor-report",
     "monitor",

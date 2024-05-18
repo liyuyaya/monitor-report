@@ -93,7 +93,7 @@ const resourceErrorTarckerReport = (options: ResourceErrorOptions, globalOptions
                 name: promiseErrorTrackerReport.name,
                 message: error.message,
                 type: ErrorTypeEnum.INTERNALERROR,
-                rank: "002"
+                rank: "101"
             }, globalOptions)
         }
 

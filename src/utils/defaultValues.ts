@@ -5,18 +5,10 @@ import { Options } from "../../index";
 export const defaultOptionsValue: Options = {
     mode: 'History',
     log: true,
-    isReport: true,
-    errorOptions: {
-        url: window.location.origin + "/example",
-        asyncErrorOptions: {},
-        resourceErrorOptions: {},
-        promiseErrorOptions: {}
-    },
+    isReport: false,
+    errorOptions: false,
+    behaviorOptions: false,
+    pvUvOptions: false,
+    customFields: {}
 
-    behaviorOptions: {
-        url: window.location.origin + "/example",
-    },
-    pvUvOptions: {
-        url: window.location.origin + "/example",
-    }
 }
