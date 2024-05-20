@@ -15,6 +15,7 @@ export const createPluginsConfig = (isDev) => {
                 presets: [["@babel/preset-env", {
                     "modules": false,
                     "useBuiltIns": "usage",
+                    "corejs": 3,// 指定 core-js 的版本  
                     "targets": {
                         "edge": '17',
                         "firefox": '60',
@@ -22,12 +23,12 @@ export const createPluginsConfig = (isDev) => {
                         "safari": '11.1',
                         'ie': '10',
                     },
-                }]],
+                }, "@babel/preset-typescript"]],
                 extensions: ['.ts'],
                 plugins: [['@babel/plugin-transform-runtime']]
             })
         )
-        plugins.push(terser())
+        // plugins.push(terser())
     }
 
     return plugins;

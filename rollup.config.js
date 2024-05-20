@@ -21,10 +21,10 @@ export default {
         ts(),
         resolve(),
         commonjs(),
-        eslint({
-            include: ['src/**/*.ts'],
-            exclude: ["node_modules/**"],
-        }),
+        // eslint({
+        //     include: ['src/**/*.ts'],
+        //     exclude: ["node_modules/**"],
+        // }),
         ...plugins
     ]
 }
