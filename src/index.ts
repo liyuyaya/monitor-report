@@ -1,2 +1,2 @@
-import { monitorReport } from './init'
-export default monitorReport
+import { monitorReport } from './init';
+export default monitorReport;

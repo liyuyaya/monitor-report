@@ -34,7 +34,7 @@ const asyncErrorTrackerReport = (options: AsyncErrorOptions, globalOptions: Opti
 const promiseErrorTrackerReport = (options: PromiseErrorOptions, globalOptions: Options) => {
 
     window.addEventListener('unhandledrejection', function (error) {
-        let reason = error.reason;
+        const reason = error.reason;
         try {
             if (typeof reason == 'object') {
                 if (reason.response.data) {

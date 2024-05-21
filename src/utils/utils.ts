@@ -39,8 +39,9 @@ export function setFiekdNames(fieldNames: RequestError, options: PromiseErrorOpt
  * @param time  时间默认 1s
  * @returns 
  */
-export function dtUtils(fn: Function, type = false, time = 1000) {
+export function dtUtils(fn: (e: Event) => void, type = false, time = 1000) {
     let timer: any = null;
+
     return function (this: any, ...args: any) {
         if (type) {
             if (timer) {
@@ -77,7 +78,7 @@ export function getPathToElement(element: any): any {
     let ix = 0;
     let siblings = element.parentNode.childNodes;
     for (let i = 0; i < siblings.length; i++) {
-        let sibling = siblings[i];
+        const sibling = siblings[i];
         if (sibling === element)
             return getPathToElement(element.parentNode) + '/' + element.tagName + '[' + (ix + 1) + ']';
         if (sibling.nodeType === 1 && sibling.tagName === element.tagName)
@@ -89,12 +90,12 @@ export function getPathToElement(element: any): any {
  * @param event 
  * @returns 
  */
-export function getElementInfo(event: { target: HTMLScriptElement | HTMLLIElement | HTMLImageElement; }) {
+export function getElementInfo(event: any) {
     const target = event.target;
     const result: ElementInfo = {
     }
     if (target.tagName == "BUTTON") {
-        result.text = target.innerText;
+        result.text = target;
     }
     return result;
 }

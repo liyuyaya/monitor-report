@@ -1,7 +1,4 @@
-import { Options } from "../../index";
-
-//  default options values
-
+import type { Options } from "../../index";
 export const defaultOptionsValue: Options = {
     mode: 'History',
     log: true,
@@ -12,5 +9,4 @@ export const defaultOptionsValue: Options = {
         resourceErrorOptions: {}
     },
     customFields: {}
-
 }

@@ -28,7 +28,7 @@ export const createPluginsConfig = (isDev) => {
                 plugins: [['@babel/plugin-transform-runtime']]
             })
         )
-        // plugins.push(terser())
+        plugins.push(terser())
     }
 
     return plugins;

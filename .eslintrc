@@ -1,0 +1,41 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+    ],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": "latest",
+        "babelOptions": {
+            "presets": [
+                "@babel/preset-env",
+                "@babel/preset-typescript"
+            ]
+        }
+    },
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "no-console": 0,
+        "no-empty": [
+            2,
+            {
+                "allowEmptyCatch": true
+            }
+        ],
+        "prefer-const": "off",
+        "prefer-rest-params": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-useless-escape": 0,
+        "@typescript-eslint/no-unused-vars": "off",
+    },
+    "globals": {
+        "Symbol": "readonly"
+    }
+}
