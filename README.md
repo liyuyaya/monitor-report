@@ -37,6 +37,20 @@ monitorReport({
 
 ## options
 
+配置
+
+| 字段            | 默认值  | 类型                     | 可选值              | 作用                             |
+| --------------- | ------- | ------------------------ | ------------------- | -------------------------------- |
+| mode            | History | string                   | 'Hash' \| 'History' | 路由模式                         |
+| log             | true    | boolean                  |                     | 是否打印日志                     |
+| isReport        | false   | boolean                  |                     | 是否上报数据                     |
+| errorOptions    | {}      | ErrorOptions \| false    |                     | 错误配置                         |
+| behaviorOptions | {}      | BehaviorOptions \| false |                     | 操作配置                         |
+| pvUvOptions     | {}      | PvUvOptions \| false     |                     | PV UV 配置                       |
+| customFields    | {}      | object                   |                     | 自定义配置，可以加参数上传给后端 |
+
+
+
 #### errorOptions     错误配置
 
 type: object | false
@@ -93,6 +107,12 @@ default:   fasle
 type:  object
 
 default:   {}
+
+
+
+
+
+
 
 
 
